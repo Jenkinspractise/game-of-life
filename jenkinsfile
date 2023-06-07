@@ -1,0 +1,9 @@
+step( 'vcs' ){
+    git url: 'https://github.com/Jenkinspractise/game-of-life.git'
+        git branch: 'scripted'
+}
+steps( 'java_build' ){
+    sh export PATH=/usr/lib/jvm
+
+
+}
