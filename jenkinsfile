@@ -1,9 +1,13 @@
-step( 'vcs' ){
-    git url: 'https://github.com/Jenkinspractise/game-of-life.git'
-        git branch: 'scripted'
-}
-steps( 'java_build' ){
-    sh export PATH=/usr/lib/jvm
-
+node( 'MAVEN_JDK8' ){
+    stage ( 'vcs' ){
+        git url: 'https://github.com/Jenkinspractise/game-of-life.git',
+            branch: 'scripted'
+    }
+    stage( 'build java' ){
+         sh 'export PATH="/usr/lib/jvm/java-1.8.0-openjdk-amd64/bin:$PATH" || mvn package'
+    }
+    stage( 'archive artifacts' ){
+        
+    }
 
 }
